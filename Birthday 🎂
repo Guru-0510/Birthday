@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Kaju! 🎂</title>
+    <!-- Tailwind CSS for sleek styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Canvas Confetti Library for the celebration effect -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0d0d12;
+        }
+        .glow-text {
+            text-shadow: 0 0 25px rgba(244, 63, 94, 0.5);
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen flex items-center justify-center overflow-hidden px-4">
+
+    <!-- MAIN CELEBRATION SCREEN -->
+    <div id="celebration-screen" class="w-full max-w-xl text-center space-y-12 opacity-0 transform scale-95 transition-all duration-1000">
+        
+        <!-- Identity Strike Concept -->
+        <div class="space-y-3 relative">
+            <div class="flex justify-center items-center gap-4 text-2xl md:text-3xl font-bold text-slate-500">
+                <span class="line-through decoration-rose-500 decoration-4">kashi</span>
+                <span class="text-rose-500 bg-rose-500/10 px-3 py-1 rounded-lg text-sm border border-rose-500/20">❌ </span>
+            </div>
+            
+            <div class="text-5xl md:text-7xl font-extrabold tracking-tight glow-text text-white flex justify-center items-center gap-3">
+                <span>kaju</span>
+                <span class="text-emerald-400 text-4xl md:text-6xl">✓</span>
+            </div>
+        </div>
+
+        <!-- The Core Wish -->
+        <div>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400">
+                Happy Birthday, Kaju! 🥳
+            </h1>
+        </div>
+
+        <!-- Interactive Surprise Button -->
+        <div>
+            <button onclick="triggerConfetti()" 
+                class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 px-6 py-3 rounded-full text-sm font-semibold tracking-wide shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer">
+                🎉 Tap for Celebrations
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Trigger effects immediately when the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            const celeb = document.getElementById('celebration-screen');
+            
+            // Smooth fade-in animation
+            setTimeout(() => {
+                celeb.classList.remove('opacity-0', 'scale-95');
+                celeb.classList.add('opacity-100', 'scale-100');
+                
+                // Initial confetti bursts
+                triggerConfetti();
+                setTimeout(triggerConfetti, 350);
+            }, 200);
+        });
+
+        function triggerConfetti() {
+            // Left burst
+            confetti({
+                particleCount: 80,
+                spread: 60,
+                origin: { x: 0.1, y: 0.65 },
+                colors: ['#f43f5e', '#a855f7', '#3b82f6', '#10b981']
+            });
+            // Right burst
+            confetti({
+                particleCount: 80,
+                spread: 60,
+                origin: { x: 0.9, y: 0.65 },
+                colors: ['#f43f5e', '#a855f7', '#3b82f6', '#10b981']
+            });
+        }
+    </script>
+</body>
+</html>
